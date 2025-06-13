@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id        String      @id @default(uuid())
+  title     String
+  tasks     String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+  UserTodo UserTodo[]
+  todoPublics todoPublic[]
+}
+
+model Users {
+  id        String        @id @default(uuid())
+  email     String        @unique
+  password  String
+  createdAt DateTime      @default(now())
+
+  UserTodo  UserTodo[]
+  friends   UserFriend[]  @relation("UserFriends_user")
+  friendOf  UserFriend[]  @relation("UserFriends_friend")
+  todoPublics  todoPublic[] @relation("UserRef")
+  todoPublicFriend todoPublic[] @relation("UserFriendRef") 
+}
+
+
+model UserTodo {
+  id        String   @id @default(uuid())
+  userId    String
+  todoId    String
+  createdAt DateTime @default(now())
+
+  user Users @relation(fields: [userId], references: [id])
+  todo Todo @relation(fields: [todoId], references: [id])
+
+  @@unique([userId, todoId])
+}
+
+model UserFriend {
+  id            String   @id @default(uuid())
+  userId        String
+  friendId      String
+  createdAt     DateTime @default(now())
+  confirmed     Boolean  @default(false)   
+
+  user          Users    @relation("UserFriends_user", fields: [userId], references: [id])
+  friend        Users    @relation("UserFriends_friend", fields: [friendId], references: [id])
+  
+  @@unique([userId, friendId])
+}
+
+
+model todoPublic {
+  id            String   @id @default(uuid())
+  todoId        String
+  userId        String
+  userFriendId  String
+  createdAt     DateTime @default(now())
+
+  todo       Todo     @relation(fields: [todoId], references: [id])
+  user       Users    @relation("UserRef", fields: [userId], references: [id])
+  userFriend Users    @relation("UserFriendRef", fields: [userFriendId], references: [id])
+
+  @@unique([userId, todoId])
+  @@unique([userFriendId, todoId])
+  @@unique([todoId])
+}
+
