@@ -3,6 +3,8 @@ type SpanAtomProps = {
   className?: string;
 };
 
-export default function SpanAtom({ text, className = '' }: SpanAtomProps) {
+const SpanAtom = ({ text, className = '' }: SpanAtomProps) => {
   return <span className={`label-text ${className}`}>{text}</span>;
 }
+
+export default SpanAtom;

@@ -6,7 +6,7 @@ type TitleProps = {
 };
 
 
-export default function Title ({ children, className }: TitleProps) {
+const Title = ({ children, className }: TitleProps) => {
   return (
     <>
       <h1 className={className}>
@@ -15,3 +15,5 @@ export default function Title ({ children, className }: TitleProps) {
     </>
   )
 }
+
+export default  Title;

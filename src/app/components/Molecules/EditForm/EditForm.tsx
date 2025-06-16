@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-
 import ButtonAtom from '../../atoms/Button/Button';
 import InputAtom from '../../atoms/Input/Input';
 import FormAtom from '../../atoms/FormAtom/FormAtom';
 import CheckboxAtom from '../../atoms/CheckboxAtom/CheckboxAtom';
 import LabelText from '../LabelText';
 import { editTodo } from '../../../action';
+import {UpdateButton} from '../../../../../utils/constants';
 
 type Task = {
   id: string;
@@ -19,7 +19,8 @@ type EditFormProps = {
   task: Task;
 };
 
-export default function EditForm({ task }: EditFormProps) {
+
+const EditForm = ({ task }: EditFormProps) => {
   const { id, title, completed } = task;
 
   return (
@@ -65,7 +66,7 @@ export default function EditForm({ task }: EditFormProps) {
       </div>
 
       <ButtonAtom
-        label="Update"
+        label={UpdateButton}
         className="
           btn-block
           btn-lg
@@ -89,4 +90,7 @@ export default function EditForm({ task }: EditFormProps) {
     </FormAtom>
   );
 }
+
+export default  EditForm ;
+
 

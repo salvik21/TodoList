@@ -1,7 +1,6 @@
 import LabelAtom from '../atoms/LabelAtom/LabelAtom';
 import SpanAtom from '../atoms/SpanAtom/SpanAtom';
-
-import React from 'react'
+import React from 'react';
 
 
 const LabelText = () => {

@@ -3,6 +3,8 @@ type HeadingAtomProps = {
   className?: string;
 };
 
-export default function HeadingAtom({ children, className = '' }: HeadingAtomProps) {
+const HeadingAtom = ({ children, className = '' }: HeadingAtomProps) => {
   return <h2 className={className}>{children}</h2>;
 }
+
+export default HeadingAtom;

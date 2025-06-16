@@ -10,7 +10,7 @@ export type InputAtomProps = {
   defaultValue?: string;
 };
 
-export default function InputAtom({
+const InputAtom = ({
   type = 'text',
   name,
   id,
@@ -18,7 +18,7 @@ export default function InputAtom({
   placeholder,
   required = false,
   defaultValue,
-}: InputAtomProps) {
+}: InputAtomProps) => {
   return (
     <input
       type={type}
@@ -31,3 +31,5 @@ export default function InputAtom({
     />
   );
 }
+
+export default InputAtom;

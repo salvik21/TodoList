@@ -5,12 +5,12 @@ export type CheckboxAtomProps = {
   className?: string;
 };
 
-export default function CheckboxAtom({
+const CheckboxAtom = ({
   name,
   id,
   defaultChecked = false,
   className = '',
-}: CheckboxAtomProps) {
+}: CheckboxAtomProps) => {
   return (
     <input
       type="checkbox"
@@ -21,3 +21,5 @@ export default function CheckboxAtom({
     />
   );
 }
+
+export default  CheckboxAtom;

@@ -4,8 +4,8 @@ import { revalidatePath } from 'next/cache';
 import prisma from '../../utils/db';
 import { redirect } from 'next/navigation';
 
-export const addTask = async (formData) => {
-    const title = formData.get('addTodo');
+export const addTask = async (formData: FormData) => {
+    const title = formData.get('addTodo') as string;
     await prisma.todo.create({
     data: {
       title: title,
@@ -22,31 +22,33 @@ export const getAllTodos = async () => {
   });
 }
 
-export const deleteTodo = async (formData) => {
-    const id = formData.get('todoId');
+export const deleteTodo = async (formData: FormData) => {
+    const id = formData.get('todoId') as string;
     await prisma.todo.delete({
     where: { id },
   });
   revalidatePath('/');
 }
 
-export const getTodoById = async (id) => {
+export const getTodoById = async (id: string) => {
 return prisma.todo.findUnique({
     where: { id },
   });
 }
 
-export const editTodo = async (formData) => {
-    const id = formData.get('id');
-    const title = formData.get('title');
+export const editTodo = async (formData: FormData) => {
+    const id = formData.get('id') as string;;
+    const title = formData.get('title') as string;;
     const completed = formData.get('completed');
+
+    if (!id || !title) {
+        throw new Error("ID and title are required");
+    }
     
     await prisma.todo.update({
         where: { id },
-        data: { title, completed:
-        completed === 'on',
-         },
+        data: { title, completed: completed === 'on' },
     });
-    
-    redirect  ("/");     
+
+    redirect("/");
 }

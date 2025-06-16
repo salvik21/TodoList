@@ -3,6 +3,7 @@ import Form from '../atoms/FormAtom/FormAtom';
 import Input from '../atoms/Input/Input';
 import Link from '../atoms/Link/LinkAtom';
 import Title from '../atoms/Title/Title';
+import { BackButton, InputPlaceholderEmail, InputPlaceholderPassword } from '../../../../utils/constants';
 
 type UserFormProps = {
   action?: (formData: FormData) => void;
@@ -17,7 +18,7 @@ const UserForm = ({ action, buttonName, TitleName }: UserFormProps) => {
         <>
           <Link
       href="/"
-      text="Back"
+      text={ BackButton }
       className="
         inline-flex items-center gap-2
         px-4 py-2
@@ -43,7 +44,7 @@ const UserForm = ({ action, buttonName, TitleName }: UserFormProps) => {
                   <Input
                     name="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder={InputPlaceholderEmail}
                     className="w-full border-2 border-blue-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                     required
                   />
@@ -52,7 +53,7 @@ const UserForm = ({ action, buttonName, TitleName }: UserFormProps) => {
                   <Input
                     name="password"
                     type="password"
-                    placeholder="Password"
+                    placeholder={InputPlaceholderPassword}
                     className="w-full border-2 border-blue-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                     required
                   />

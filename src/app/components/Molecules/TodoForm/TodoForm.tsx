@@ -5,6 +5,9 @@ import { addTask } from '../../../action';
 import ButtonAtom from '../../atoms/Button/Button';
 import InputAtom from '../../atoms/Input/Input';
 import FormAtom from '../../atoms/FormAtom/FormAtom';
+import{AddTodoButtonForm, TodoFormInputPlaceholder} from '../../../../../utils/constants';
+
+
 
 export  const TodoForm = () => {
   return (
@@ -16,7 +19,7 @@ export  const TodoForm = () => {
         <InputAtom
           type="text"
           name="addTodo"
-          placeholder="Add a new todo"
+          placeholder={TodoFormInputPlaceholder}
           required
           className="
             border-2 border-blue-500
@@ -32,7 +35,7 @@ export  const TodoForm = () => {
       </div>
       <div className="w-full flex justify-end">
         <ButtonAtom
-          label="Add Todo"
+          label={AddTodoButtonForm}
           type="submit"
           className="
             bg-blue-600
