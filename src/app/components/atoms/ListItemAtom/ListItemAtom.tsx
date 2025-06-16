@@ -3,6 +3,8 @@ type ListItemAtomProps = {
   className?: string;
 };
 
-export default function ListItemAtom({ children, className = '' }: ListItemAtomProps) {
+const ListItemAtom = ({ children, className = '' }: ListItemAtomProps) => {
   return <li className={className}>{children}</li>;
 }
+
+export default ListItemAtom;

@@ -7,14 +7,16 @@ export type ButtonAtomProps = {
   className?: string;
 };
 
-export default function ButtonAtom({
+const ButtonAtom = ({
   type = 'submit',
   label,
   className = '',
-}: ButtonAtomProps) {
+}: ButtonAtomProps) => {
   return (
     <button type={type} className={`btn btn-primary ${className}`}>
       {label}
     </button>
   );
 }
+
+export default ButtonAtom;

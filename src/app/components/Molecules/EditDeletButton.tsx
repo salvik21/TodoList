@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkAtom from '../atoms/Link/LinkAtom';
 import DeleteForm from './DeleteForm/DeleteForm';
+import { EditButton } from '../../../../utils/constants'; 
 
 type Props = {
   todosId: string;
@@ -11,7 +12,7 @@ const EditDeleteButton = ({ todosId }: Props) => {
     <div className="flex items-center gap-3">
       <LinkAtom
         href={`/${todosId}`}
-        text="Edit"
+        text={EditButton}
         className="
           px-3 py-1
           rounded-lg
