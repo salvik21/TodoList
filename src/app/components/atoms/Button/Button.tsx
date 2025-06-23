@@ -8,7 +8,7 @@ export type ButtonAtomProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const ButtonAtom = ({
+const Button = ({
   type = 'submit',
   label,
   className = '',
@@ -21,4 +21,4 @@ const ButtonAtom = ({
   );
 }
 
-export default ButtonAtom;
+export default Button;

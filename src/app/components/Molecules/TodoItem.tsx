@@ -1,9 +1,14 @@
 'use client';
 import React from 'react'
+import { useForm } from 'react-hook-form';
 import ButtonAtom from '../atoms/Button/Button';
 import { useState } from 'react';
 import { deleteTodo, editTodo } from '../../action';
 import EditInput from './EditInput';
+import { TodoInput } from '@/schemas/todo.schema';
+import EditButton from './EditButton';
+import SaveButton from './SaveButton';
+import DeleteButton from './DeleteButton/DeleteButton';
 
 type TodoItemProps = {
   id: string;
@@ -11,48 +16,49 @@ type TodoItemProps = {
   value: string;
 };
 
-const TodoItem = ({ id,  value}: TodoItemProps) => {
+const TodoItem = ({ id, value }: TodoItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState(value);
 
-  const handleSave = () => {
+  const handleSave = (data: TodoInput) => {
+    if (!data.title.trim()) {
+      return; // Prevent saving empty title
+    }
     setIsEditing(false);
-    editTodo(id, editedText); 
+    editTodo(id, data.title);
+    console.log('Todo updated:', id, data.title);
   };
 
-return (
-  <div className="flex items-center justify-between w-full px-4 py-2 rounded shadow bg-white">
-    <div className="flex-1">
-      {isEditing ? (
-        <EditInput  
-          value={editedText}
-          onChange={(e) => setEditedText(e.target.value)}
-        />
-      ) : (
-        <span className="text-sm h-8 px-2 py-1 w-full  rounded bg-white inline-flex items-center">{value}</span>
+  const { register, handleSubmit, } = useForm<{ title: string }>({
+    defaultValues: { title: value },
+  });
+  return (
+    <div className="flex items-center justify-between w-full px-4 py-2 rounded shadow bg-white">
+      <div className="flex-1">
+        {isEditing ? (
+          <EditInput
+            register={register('title')}
+            onSubmit={handleSubmit(handleSave)}
+          />
+        ) : (
+        <span className="text-sm h-10 px-4 py-2 w-full rounded bg-white inline-flex items-center">{value}</span>
       )}
-    </div>
+      </div>
 
-  
-    <div className="flex gap-2 ml-4 shrink-0">
-      {isEditing ? (
-        <ButtonAtom
-          label="Save"
-          className="bg-green-500 text-white px-3 py-1 rounded text-xs"
-          onClick={handleSave}
-        />
-      ) : (
-        <ButtonAtom
-          label="Edit"
-          className="bg-yellow-500 text-white px-3 py-1 rounded text-xs"
-          onClick={() => setIsEditing(true)}
-        />
-      )}
+      <div className="flex gap-2 ml-4 shrink-0">
+        {isEditing ? (
+          <SaveButton onClick={handleSubmit(handleSave)} />
+        ) : (
+          <EditButton onClick={() => setIsEditing(true)}
+          />
+        )
+        
+        }
+        <DeleteButton onClick={() => deleteTodo(id)} />
+      </div>
     </div>
-  </div>
-);
+  );
 
 };
-
+//
 export default TodoItem;
 

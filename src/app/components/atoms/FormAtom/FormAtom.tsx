@@ -4,11 +4,12 @@ export type FormAtomProps = {
   action?: (formData: FormData) => void;
   children: React.ReactNode;
   className?: string;
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const FormAtom = ({ action, children, className = '' }: FormAtomProps) => {
+const FormAtom = ({ action,onSubmit, children, className = '' }: FormAtomProps) => {
   return (
-    <form action={action} className={`flex flex-col gap-4 ${className}`}>
+    <form onSubmit={onSubmit} action={action} className={`flex flex-col gap-4 ${className}`}>
       {children}
     </form>
   );

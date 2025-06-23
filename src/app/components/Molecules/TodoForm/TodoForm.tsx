@@ -2,24 +2,32 @@
 
 import React from 'react';
 import { addTask } from '../../../action';
-import ButtonAtom from '../../atoms/Button/Button';
+import Button from '../../atoms/Button/Button';
 import InputAtom from '../../atoms/Input/Input';
 import FormAtom from '../../atoms/FormAtom/FormAtom';
 import{AddTodoButtonForm, TodoFormInputPlaceholder} from '../../../../../utils/constants';
-
+import { useForm } from 'react-hook-form';
+import {TodoInput, todoSchema} from '../../../../schemas/todo.schema'
+import { zodResolver } from '@hookform/resolvers/zod';
 
 
 export  const TodoForm = () => {
+const { register, handleSubmit, reset } = useForm<TodoInput>({
+  resolver: zodResolver(todoSchema),
+});
+   const onSubmit = (data:TodoInput) => {
+    addTask(data.title);
+    reset();
+  };
   return (
+    
     <FormAtom
-      action={addTask}
-      className="w-full max-w-md bg-white p-6 rounded-2xl shadow-xl"
-    >
-      <div className="w-full mb-8">
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-full max-w-md bg-white p-6 rounded-2xl shadow-xl">
+        <div className="w-full mb-8">
         <InputAtom
-          type="text"
-          name="addTodo"
           placeholder={TodoFormInputPlaceholder}
+           {...register('title')}
           required
           className="
             border-2 border-blue-500
@@ -34,7 +42,7 @@ export  const TodoForm = () => {
         />
       </div>
       <div className="w-full flex justify-end">
-        <ButtonAtom
+        <Button
           label={AddTodoButtonForm}
           type="submit"
           className="
@@ -54,7 +62,7 @@ export  const TodoForm = () => {
             tracking-wider
           "
         />
-      </div>
+        </div>
     </FormAtom>
   );
 };

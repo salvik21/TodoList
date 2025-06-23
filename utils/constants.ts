@@ -1,7 +1,7 @@
 //Buttons
 const DeleteButtonName :string = 'Delete';
 const EditButtonText :string = 'Edit';
-const UpdateButton :string = 'Update';
+const SaveButtonText :string = 'Save';
 const AddTodoButtonForm :string = 'Add Todo';
 const BackButton :string = '← Back';
 const LoginPageButton: string = 'Log In';
@@ -44,7 +44,7 @@ const ErrorMessageTask: string = 'Task not found';
 export { 
     DeleteButtonName, 
     EditButtonText, 
-    UpdateButton,
+    SaveButtonText,
     NavTitleText,
     NavLinkText,
     NavLinkText2,

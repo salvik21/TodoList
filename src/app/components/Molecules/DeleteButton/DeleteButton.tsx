@@ -4,8 +4,12 @@ import { deleteTodo } from '../../../action';
 import ButtonAtom from '../../atoms/Button/Button';
 import { DeleteButtonName } from '../../../../../utils/constants';
 
+type DeleteButtonProps = {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-const DeleteButton = ({ id }: { id: string }) => {
+
+const DeleteButton = ({ onClick}:DeleteButtonProps) => {
   return (
     <div>
       <ButtonAtom
@@ -23,7 +27,7 @@ const DeleteButton = ({ id }: { id: string }) => {
           transition
           duration-150
         "
-        onClick={() => deleteTodo(id)}
+        onClick={onClick}
       />
     
     </div>
