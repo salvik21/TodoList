@@ -1,6 +1,6 @@
 //Buttons
-const DeleteButton :string = 'Delete';
-const EditButton :string = 'Edit';
+const DeleteButtonName :string = 'Delete';
+const EditButtonText :string = 'Edit';
 const UpdateButton :string = 'Update';
 const AddTodoButtonForm :string = 'Add Todo';
 const BackButton :string = '← Back';
@@ -42,8 +42,8 @@ const EditPageTitle: string = 'Edit Task';
 const ErrorMessageTask: string = 'Task not found';
 
 export { 
-    DeleteButton, 
-    EditButton, 
+    DeleteButtonName, 
+    EditButtonText, 
     UpdateButton,
     NavTitleText,
     NavLinkText,

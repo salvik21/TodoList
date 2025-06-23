@@ -2,7 +2,6 @@ import React from 'react'
 import Form from '../atoms/FormAtom/FormAtom';
 import Input from '../atoms/Input/Input';
 import Link from '../atoms/Link/LinkAtom';
-import Title from '../atoms/Title/Title';
 import { BackButton, InputPlaceholderEmail, InputPlaceholderPassword } from '../../../../utils/constants';
 
 type UserFormProps = {
@@ -38,7 +37,7 @@ const UserForm = ({ action, buttonName, TitleName }: UserFormProps) => {
 
           <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md mt-8">
-              <Title className="text-2xl font-bold mb-6 text-center text-blue-700">{TitleName}</Title>
+              <h1 className="text-2xl font-bold mb-6 text-center text-blue-700">{TitleName}</h1>
               <Form action={action} className="space-y-6">
                 <div className="mb-5">
                   <Input

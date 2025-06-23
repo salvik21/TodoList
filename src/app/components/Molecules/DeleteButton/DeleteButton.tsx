@@ -2,16 +2,14 @@
 import React from 'react';
 import { deleteTodo } from '../../../action';
 import ButtonAtom from '../../atoms/Button/Button';
-import InputAtom from '../../atoms/Input/Input';
-import FormAtom from '../../atoms/FormAtom/FormAtom';
-import { DeleteButton } from '../../../../../utils/constants';
+import { DeleteButtonName } from '../../../../../utils/constants';
 
-const DeleteForm = ({ id }: { id: string }) => {
+
+const DeleteButton = ({ id }: { id: string }) => {
   return (
-    <FormAtom action={deleteTodo}>
-      <InputAtom type="hidden" name="todoId" defaultValue={id} />
+    <div>
       <ButtonAtom
-        label={DeleteButton}
+        label={DeleteButtonName}
         type="submit"
         className="
           px-3 py-1
@@ -25,10 +23,12 @@ const DeleteForm = ({ id }: { id: string }) => {
           transition
           duration-150
         "
+        onClick={() => deleteTodo(id)}
       />
-    </FormAtom>
+    
+    </div>
   );
 };
 
-export default DeleteForm;
+export default DeleteButton;
 

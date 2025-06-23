@@ -5,15 +5,17 @@ export type ButtonAtomProps = {
   type?: 'submit' | 'button' | 'reset';
   label: string;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const ButtonAtom = ({
   type = 'submit',
   label,
   className = '',
+  onClick,
 }: ButtonAtomProps) => {
   return (
-    <button type={type} className={`btn btn-primary ${className}`}>
+    <button type={type} className={`btn btn-primary ${className}`} onClick={onClick}>
       {label}
     </button>
   );

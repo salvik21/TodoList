@@ -1,10 +1,11 @@
+import Link from 'next/link';
+import React from 'react';
+
 type LinkAtomProps = {
   href: string;
   text: string;
   className?: string;
 };
-
-import Link from 'next/link';
 
 const LinkAtom = ({ href, text, className = '' }: LinkAtomProps) => {
   return (

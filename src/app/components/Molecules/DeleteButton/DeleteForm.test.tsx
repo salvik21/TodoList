@@ -1,7 +1,7 @@
 // DeleteForm.test.tsx
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import DeleteForm from './DeleteForm';
+import DeleteForm from './DeleteButton';
 import { FormAtomProps } from '../../atoms/FormAtom/FormAtom';
 import { InputAtomProps } from '../../atoms/Input/Input';
 import { ButtonAtomProps } from '../../atoms/Button/Button';

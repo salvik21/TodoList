@@ -22,8 +22,10 @@ export const getAllTodos = async () => {
   });
 }
 
-export const deleteTodo = async (formData: FormData) => {
-    const id = formData.get('todoId') as string;
+export const deleteTodo = async (id: string) => {
+  if (!id) {
+    throw new Error("ID is required");
+  }
     await prisma.todo.delete({
     where: { id },
   });
@@ -31,23 +33,23 @@ export const deleteTodo = async (formData: FormData) => {
 }
 
 export const getTodoById = async (id: string) => {
-return prisma.todo.findUnique({
+  if (!id) {
+    throw new Error("ID is required");
+  }
+  return prisma.todo.findUnique({
     where: { id },
   });
 }
 
-export const editTodo = async (formData: FormData) => {
-    const id = formData.get('id') as string;;
-    const title = formData.get('title') as string;;
-    const completed = formData.get('completed');
-
-    if (!id || !title) {
+export const editTodo = async (id: string, editedText: string) => {
+    
+    if (!id || !editedText) {
         throw new Error("ID and title are required");
     }
     
     await prisma.todo.update({
         where: { id },
-        data: { title, completed: completed === 'on' },
+        data: { title: editedText },
     });
 
     redirect("/");

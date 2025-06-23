@@ -1,9 +1,10 @@
+import { editTodo } from '../../action';
+
 import React from 'react';
 import { getAllTodos } from '../../action';
-import EditDeleteButton from './EditDeletButton';
-import ListAtom from '../atoms/ListAtom/ListAtom';
-import ListItemAtom from '../atoms/ListItemAtom/ListItemAtom';
+import EditDeleteButton from './EditButton';
 import { TodoListMessageText } from '../../../../utils/constants';
+import TodoItem from './TodoItem';
 
 
 const TodoList = async () => {
@@ -17,34 +18,13 @@ const TodoList = async () => {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <ListAtom>
+      <ul>
         {AllTodos.map((todo) => (
-          <ListItemAtom
-            key={todo.id}
-            className="
-              flex justify-between items-center
-              bg-white
-              p-4
-              rounded-xl
-              mb-3
-              shadow-sm
-              hover:shadow-lg
-              transition
-              duration-150
-              group
-            "
-          >
-
-            <div className={`text-lg capitalize transition truncate max-w-[70%] ${todo.completed ? 'line-through text-gray-400 opacity-70' : 'text-gray-800'
-              }`}>
-
-              {todo.title}
-            </div>
-
-            <EditDeleteButton todosId={todo.id} />
-          </ListItemAtom>
+          <li key={todo.id}>
+            <TodoItem id={todo.id} value={todo.title}  />
+          </li>
         ))}
-      </ListAtom>
+      </ul>
     </div>
   );
 };
