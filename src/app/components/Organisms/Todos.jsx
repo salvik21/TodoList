@@ -1,5 +1,5 @@
 import React from 'react'
-import { TodoForm } from '../Molecules/TodoForm/TodoForm';
+import TodoForm  from '../Molecules/TodoForm/TodoForm';
 import TodoList from '../Molecules/TodoList';   
 import {TodoListTitleText} from '../../../../utils/constants';
 

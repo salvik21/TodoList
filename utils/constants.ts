@@ -12,13 +12,17 @@ const RegisterPageButton: string = 'Register';
 const NavTitleText :string = 'To do list app';
 
 ///NavLinks
-const NavLinkText: string = 'Home';
-const NavLinkText2: string = 'About';
-const NavLinkText3: string = 'Contact';
+const NavLinks = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/contact', text: 'Contact' },
+];
 
 ///NavUser
-const NavUserLoginText: string = 'Login';
-const NavUserRegisterText: string = 'Register';
+const navUserLinks = [
+  { href: '/user/login', text: 'Login' },
+  { href: '/user/register', text: 'Register' },
+];
 
 //TodoList
 const TodoListTitleText: string = 'To do List';
@@ -46,11 +50,8 @@ export {
     EditButtonText, 
     SaveButtonText,
     NavTitleText,
-    NavLinkText,
-    NavLinkText2,
-    NavLinkText3,
-    NavUserLoginText,
-    NavUserRegisterText,
+    NavLinks,
+    navUserLinks,
     TodoListTitleText,
     AddTodoButtonForm,
     TodoFormInputPlaceholder,

@@ -21,4 +21,3 @@ const EditButton = ({ onClick }: EditProps) => {
 };
 
 export default EditButton;
-// <DeleteForm id={todosId} />

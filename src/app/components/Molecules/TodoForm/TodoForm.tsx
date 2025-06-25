@@ -11,7 +11,7 @@ import {TodoInput, todoSchema} from '../../../../schemas/todo.schema'
 import { zodResolver } from '@hookform/resolvers/zod';
 
 
-export  const TodoForm = () => {
+const TodoForm = () => {
 const { register, handleSubmit, reset } = useForm<TodoInput>({
   resolver: zodResolver(todoSchema),
 });
@@ -66,4 +66,6 @@ const { register, handleSubmit, reset } = useForm<TodoInput>({
     </FormAtom>
   );
 };
+
+export default TodoForm;
 

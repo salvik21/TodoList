@@ -8,11 +8,9 @@ import Image from '../atoms/ImageAtom/ImageAtom';
 const NavBrand = () => {
   return (
     <div>
-      <Link href="/" className="inline-flex items-center gap-3" text={
-        <>
-          <NavHeader />
-        </>     
-      } />
+      <Link href="/" className="inline-flex items-center gap-3">
+        <NavHeader />
+      </Link>
     </div>
   )
 }
