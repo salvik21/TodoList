@@ -1,8 +1,7 @@
 import React from 'react'
 import NavBrand from './NavBrand';
-import NavLink from '../Molecules/NavLinks';
-
-import NavUser from '../Molecules/NavUser';
+import NavLink from '@molecules/NavLinks';
+import NavUser from '@molecules/NavUser';
 
 const NavBar = () => {
   return (

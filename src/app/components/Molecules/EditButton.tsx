@@ -1,6 +1,6 @@
 import React from 'react';
-import { EditButtonText } from '../../../../utils/constants'; // Importing the text for the edit button
-import Button from '../atoms/Button/Button';
+import { EditButtonText } from '@utils/constants'; // Importing the text for the edit button
+import Button from '@atoms/Button/Button';
 
 // Removed unnecessary import of EditButton from constants
 

@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
-import { deleteTodo } from '../../../action';
-import ButtonAtom from '../../atoms/Button/Button';
-import { DeleteButtonName } from '../../../../../utils/constants';
+import ButtonAtom from '@atoms/Button/Button';
+import { DeleteButtonName } from '@utils/constants';
 
 type DeleteButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

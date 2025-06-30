@@ -1,6 +1,6 @@
 import React from 'react'
-import {NavTitleText} from '../../../../utils/constants';
-import Image from '../atoms/ImageAtom/ImageAtom';
+import {NavTitleText} from '@utils/constants';
+import Image from '@atoms/ImageAtom/ImageAtom';
 
 const NavHeader = () => {
   return (

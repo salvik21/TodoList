@@ -1,8 +1,7 @@
 import React from 'react'
-import NavHeader from '../Molecules/NavHeader';
+import NavHeader from '@molecules/NavHeader';
+import Link from '@atoms/Link/LinkAtom';
 
-import Link from '../atoms/Link/LinkAtom';
-import Image from '../atoms/ImageAtom/ImageAtom';
 
 
 const NavBrand = () => {

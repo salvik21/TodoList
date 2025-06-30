@@ -1,14 +1,14 @@
 import React from 'react';
 import { ChangeEvent } from 'react';
-import Input from '../atoms/Input/Input';
-import { EditButtonText } from '../../../../utils/constants';
+import Input from '@atoms/Input/Input';
+import { EditButtonText } from '@utils/constants';
 import { UseFormRegister } from 'react-hook-form';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 
 export type EditProps = {
   register: UseFormRegisterReturn;
-   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void; 
+   onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void; 
 };
 
 

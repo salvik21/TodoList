@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '../atoms/Link/LinkAtom'
-import { NavLinks } from '../../../../utils/constants';
+import Link from '@atoms/Link/LinkAtom'
+import { NavLinks } from '@utils/constants';
 
 const NavLink = () => {
   return (

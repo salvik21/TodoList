@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from '../atoms/Link/LinkAtom';
-import { navUserLinks } from '../../../../utils/constants';
+import Link from '@atoms/Link/LinkAtom';
+import { navUserLinks } from '@utils/constants';
 
 const NavUser = () => {
   return (

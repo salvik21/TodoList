@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../atoms/Button/Button';
-import { SaveButtonText } from '../../../../utils/constants'; // Importing the text for the edit button
+import Button from '@atoms/Button/Button';
+import { SaveButtonText } from '@utils/constants'; // Importing the text for the edit button
 
 type SaveProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void; // onClick handler for the button

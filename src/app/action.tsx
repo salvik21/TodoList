@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from 'next/cache';
-import prisma from '../../utils/db';
+import prisma from '../utils/db';
 import { redirect } from 'next/navigation';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
@@ -20,8 +20,6 @@ export const addTask = async (title:string) => {
  revalidatePath('/');
 }
 
-
-
 export async function POST(req: Request) {
   const body = await req.json();
   const parsed = todoSchema.safeParse(body);
@@ -38,34 +36,20 @@ export async function POST(req: Request) {
 }
 
 
-export const getAllTodos = async () => {
+/*export const getAllTodos = async () => {
   return await prisma.todo.findMany({
     orderBy: {
       createdAt: 'desc'
     },
   });
 }
+export const getAllTodos = async () => {
+  const todos = await prisma.todo.findMany();
+  console.log("Из базы получено:", todos); // ← проверь в консоли сервера
+  return todos;
+};*/
 
-export const deleteTodo = async (id: string) => {
-  if (!id) {
-    throw new Error("ID is required");
-  }
-    await prisma.todo.delete({
-    where: { id },
-  });
-  revalidatePath('/');
-}
-
-export const editTodo = async (id: string, editedText: string) => {
-    
-    if (!id || !editedText) {
-        throw new Error("ID and title are required");
-    }
-    
-    await prisma.todo.update({
-        where: { id },
-        data: { title: editedText },
-    });
-
-    redirect("/");
-}
+export const getAllTodos = async () => {
+  const todos = await prisma.todo.findMany();  // ← проверь, что модель называется "todo"
+  return todos; // ← обязательно!
+};
