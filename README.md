@@ -1,53 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js + Prisma Starter
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) application bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses **Prisma** for database access, **Zod** for validation, **React `useState`** for state management, and the **Geist** font from Vercel.
 
-First, run the development server:
+---
+
+## 📦 Getting Started
+
+Follow these steps to get your development environment set up.
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
+git clone https://github.com/salvik21/TodoList.git
+cd your-repo
+```
 
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-# Next.js App with Prisma
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses **Prisma** for database access and **Geist** font for UI design.
-
----
-
-# Next.js + Prisma Project
-
-This is a [Next.js](https://nextjs.org) application using [Prisma](https://www.prisma.io/) as an ORM and [Geist](https://vercel.com/font) for font styling. It also uses native `fetch` for API calls, `zod` for schema validation, and React `useState` for state management.
-
----
-
-## 🚀 How to Run the Project
-
-Follow these steps to get your development environment up and running.
-
-
-
- Install dependencies
+### 2. Install dependencies
 
 ```bash
 npm install
@@ -55,22 +23,25 @@ npm install
 
 ### 3. Setup environment variables
 
-Create a `.env` file in the root of the project:
-
-
-If you're using SQLite for testing, use:
+Create a `.env` file in the root directory:
 
 ```
 DATABASE_URL="file:./dev.db"
 ```
 
+> Using SQLite for local development.
+
 ### 4. Initialize Prisma
+
+Run the following to set up Prisma:
 
 ```bash
 npx prisma init
 ```
-Edit the `prisma/schema.prisma` file to define your models.
-opy this Isati
+
+Replace the contents of `prisma/schema.prisma` with:
+
+```prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -86,8 +57,9 @@ model Todo {
   completed Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+```
 
-Then run:
+Then generate the client and run the first migration:
 
 ```bash
 npx prisma migrate dev --name init
@@ -100,8 +72,8 @@ npx prisma generate
 npm install zod
 ```
 
-> `useState` is part of React and does not require installation.  
-> `fetch` is available globally in the browser and in Next.js.
+> `useState` is included in React and does not require installation.  
+> `fetch` is built-in in browsers and available globally in Next.js.
 
 ### 6. Start the development server
 
@@ -109,7 +81,7 @@ npm install zod
 npm run dev
 ```
 
-Now open [http://localhost:3000](http://localhost:3000) to view the app.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ---
 
@@ -125,16 +97,33 @@ Now open [http://localhost:3000](http://localhost:3000) to view the app.
 - **Deployment:** [Vercel](https://vercel.com)
 
 ---
+
 ## 📚 Useful Commands
 
 ```bash
-npm run dev        # Start development server
-npm run build      # Build for production
-npm run start      # Start production server
-npx prisma studio  # Open Prisma database GUI
+npm run dev                         # Start development server
+npm run build                       # Build for production
+npm run start                       # Start production server
+npx prisma studio                   # Open Prisma GUI
 npx prisma migrate dev --name NAME  # Create and apply migration
+```
 
+---
+
+## 📦 Deployment
+
+Deploy easily with [Vercel](https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app-readme).  
+Refer to [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for more options.
+
+---
 
 ## ✅ Done!
 
-You now have a running Next.js app with Prisma, Zod validation, and React state handling.
+You're ready! You now have a running Next.js app with:
+
+- Prisma-powered database
+- Zod schema validation
+- React `useState` for managing state
+- Clean UI using Geist font
+
+Happy coding! 🎉
