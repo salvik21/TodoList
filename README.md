@@ -70,6 +70,15 @@ DATABASE_URL="file:./dev.db"
 npx prisma init
 ```
 Edit the `prisma/schema.prisma` file to define your models.
+opy this Isati
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
 
 Then run:
 
