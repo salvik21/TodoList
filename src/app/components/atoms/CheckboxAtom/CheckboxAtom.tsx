@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type CheckboxAtomProps = {
   name: string;
   id?: string;

@@ -5,11 +5,14 @@ import NavBar from './components/Organisms/NavBar';
 
 export default function Home() {
   return (
+    <>
+    <NavBar />
     <main>
       <div>
-        <NavBar />
+        
       < Todos />
       </div>
     </main>
+    </>
   );
 }

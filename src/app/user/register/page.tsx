@@ -1,6 +1,6 @@
 import React from 'react'
-import UserForm from '../../components/Organisms/UserForm';
-import { RegisterPageButton, RegisterPageTitle } from '../../../../utils/constants';
+import UserForm from '@components/Organisms/UserForm';
+import { RegisterPageButton, RegisterPageTitle } from '@utils/constants';
 
 
 const Register = () => {

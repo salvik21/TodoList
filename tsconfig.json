@@ -19,9 +19,14 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@atoms/*": ["./src/app/components/atoms/*"],
+      "@molecules/*": ["./src/app/components/Molecules/*"],
+      "@organisms/*": ["./src/app/components/Organisms/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/addNewTodo.js", "jest.setup.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/addNewTodo.js", "jest.setup.js", "tsconfig.json"],
   "exclude": ["node_modules"]
 }

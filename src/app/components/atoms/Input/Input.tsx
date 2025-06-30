@@ -1,35 +1,18 @@
-import React from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 
-export type InputAtomProps = {
-  type?: string;
-  name: string;
-  id?: string;
-  className?: string;
-  placeholder?: string;
-  required?: boolean;
-  defaultValue?: string;
-};
+export type InputAtomProps = InputHTMLAttributes<HTMLInputElement>;
 
-const InputAtom = ({
-  type = 'text',
-  name,
-  id,
-  className = '',
-  placeholder,
-  required = false,
-  defaultValue,
-}: InputAtomProps) => {
-  return (
-    <input
-      type={type}
-      name={name}
-      id={id}
-      className={className}
-      placeholder={placeholder}
-      defaultValue={defaultValue}
-      {...(required ? { required: true } : {})}
-    />
-  );
-}
+const InputAtom = forwardRef<HTMLInputElement, InputAtomProps>(
+  ({ className = '', ...props }, ref) => {
+    return (
+      <input
+        ref={ref}
+        className={className}
+        {...props}
+      />
+    );
+  }
+);
 
+InputAtom.displayName = 'InputAtom';
 export default InputAtom;

@@ -1,15 +1,16 @@
+import Link from 'next/link';
+import React from 'react';
+
 type LinkAtomProps = {
   href: string;
-  text: string;
+  children: React.ReactNode;
   className?: string;
 };
 
-import Link from 'next/link';
-
-const LinkAtom = ({ href, text, className = '' }: LinkAtomProps) => {
+const LinkAtom = ({ href, children, className = '' }: LinkAtomProps) => {
   return (
     <Link href={href} className={className}>
-      {text}
+      {children}
     </Link>
   );
 }
