@@ -80,6 +80,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Todo {
+  id        String   @id @default(uuid())
+  title     String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
 Then run:
 
 ```bash
