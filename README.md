@@ -66,16 +66,7 @@ npx prisma migrate dev --name init
 npx prisma generate
 ```
 
-### 5. Install additional libraries
-
-```bash
-npm install zod
-```
-
-> `useState` is included in React and does not require installation.  
-> `fetch` is built-in in browsers and available globally in Next.js.
-
-### 6. Start the development server
+### 5. Start the development server
 
 ```bash
 npm run dev
