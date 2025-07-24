@@ -12,7 +12,7 @@ Follow these steps to get your development environment set up.
 
 ```bash
 git clone https://github.com/salvik21/TodoList.git
-cd your-repo
+cd your-repo-1
 ```
 
 ### 2. Install dependencies
